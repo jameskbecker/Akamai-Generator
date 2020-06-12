@@ -1,3 +1,4 @@
+exports.generate = function(window, document) {
 var _cf = _cf || [],
   bmak = bmak || {
     ver: 1.54,
@@ -83,45 +84,46 @@ var _cf = _cf || [],
     mn_ts: "",
     mn_lg: [],
     initialRun: function () {
-      bmak.start_ts = Date.now ? Date.now() : +new Date, 
-      bmak.kact = "", 
-      bmak.ke_cnt = 0, 
-      bmak.ke_vel = 0, 
-      bmak.mact = "", 
-      bmak.mme_cnt = 0, 
-      bmak.mduce_cnt = 0, 
-      bmak.me_vel = 0, 
-      bmak.pact = "", 
-      bmak.pme_cnt = 0, 
-      bmak.pduce_cnt = 0, 
-      bmak.pe_vel = 0, 
-      bmak.tact = "", 
-      bmak.tme_cnt = 0, 
-      bmak.tduce_cnt = 0, 
-      bmak.te_vel = 0, 
-      bmak.doact = "", 
-      bmak.doe_cnt = 0, 
-      bmak.doe_vel = 0, 
-      bmak.dmact = "", 
-      bmak.dme_cnt = 0, 
-      bmak.dme_vel = 0, 
-      bmak.vcact = "", 
-      bmak.vc_cnt = 0, 
-      bmak.aj_indx = 0, 
-      bmak.aj_ss = 0, 
-      bmak.aj_type = -1, 
-      bmak.aj_indx_doact = 0, 
-      bmak.aj_indx_dmact = 0, 
-      bmak.aj_indx_tact = 0, 
-      bmak.me_cnt = 0, 
-      bmak.pe_cnt = 0, 
-      bmak.te_cnt = 0, 
-      bmak.nav_perm = ""
+      bmak.start_ts = Date.now ? Date.now() : +new Date,
+        bmak.kact = "",
+        bmak.ke_cnt = 0,
+        bmak.ke_vel = 0,
+        bmak.mact = "",
+        bmak.mme_cnt = 0,
+        bmak.mduce_cnt = 0,
+        bmak.me_vel = 0,
+        bmak.pact = "",
+        bmak.pme_cnt = 0,
+        bmak.pduce_cnt = 0,
+        bmak.pe_vel = 0,
+        bmak.tact = "",
+        bmak.tme_cnt = 0,
+        bmak.tduce_cnt = 0,
+        bmak.te_vel = 0,
+        bmak.doact = "",
+        bmak.doe_cnt = 0,
+        bmak.doe_vel = 0,
+        bmak.dmact = "",
+        bmak.dme_cnt = 0,
+        bmak.dme_vel = 0,
+        bmak.vcact = "",
+        bmak.vc_cnt = 0,
+        bmak.aj_indx = 0,
+        bmak.aj_ss = 0,
+        bmak.aj_type = -1,
+        bmak.aj_indx_doact = 0,
+        bmak.aj_indx_dmact = 0,
+        bmak.aj_indx_tact = 0,
+        bmak.me_cnt = 0,
+        bmak.pe_cnt = 0,
+        bmak.te_cnt = 0,
+        bmak.nav_perm = ""
     },
-    get_cf_date: function () {
+    get_currentFixed_date: function () {
       return Date.now ? Date.now() : +new Date
     },
     sd_debug: function (a) {
+      console.log(a)
       if (!bmak.js_post) {
         var t = a;
         "string" == typeof _sd_trace ? _sd_trace += t : _sd_trace = t
@@ -148,7 +150,11 @@ var _cf = _cf || [],
       var d = Math.random(),
         k = bmak.parseInt(1e3 * d / 2),
         s = d + "";
-      return s = s.slice(0, 11) + k, bmak.get_browser(), bmak.bc(), bmak.botMiscellaneous(), a + ",uaend," + bmak.xagg + "," + bmak.psub + "," + bmak.lang + "," + bmak.prod + "," + bmak.plen + "," + bmak.pen + "," + bmak.wen + "," + bmak.den + "," + bmak.z1 + "," + bmak.d3 + "," + n + "," + o + "," + m + "," + r + "," + i + "," + c + "," + b + "," + bmak.botData() + "," + t + "," + s + "," + e + ",loc:" + bmak.loc
+      return s = s.slice(0, 11) + k, 
+      bmak.get_browser(), 
+      bmak.bc(), 
+      bmak.botMiscellaneous(), 
+      a + ",uaend," + bmak.xagg + "," + bmak.psub + "," + bmak.lang + "," + bmak.prod + "," + bmak.plen + "," + bmak.pen + "," + bmak.wen + "," + bmak.den + "," + bmak.z1 + "," + bmak.d3 + "," + n + "," + o + "," + m + "," + r + "," + i + "," + c + "," + b + "," + bmak.botData() + "," + t + "," + s + "," + e + ",loc:" + bmak.loc
     },
     get_browser: function () {
       navigator.productSub && (bmak.psub = navigator.productSub), navigator.language && (bmak.lang = navigator.language), navigator.product && (bmak.prod = navigator.product), bmak.plen = void 0 !== navigator.plugins ? navigator.plugins.length : -1
@@ -168,10 +174,25 @@ var _cf = _cf || [],
         k = Function.prototype.bind ? 1 : 0,
         s = window.Buffer ? 1 : 0,
         l = window.PointerEvent ? 1 : 0;
-      bmak.xagg = a + (t << 1) + (e << 2) + (n << 3) + (o << 4) + (m << 5) + (r << 6) + (i << 7) + (c << 8) + (b << 9) + (d << 10) + (k << 11) + (s << 12) + (l << 13)
+      bmak.xagg = a +
+        (t << 1) +
+        (e << 2) +
+        (n << 3) +
+        (o << 4) +
+        (m << 5) +
+        (r << 6) +
+        (i << 7) +
+        (c << 8) +
+        (b << 9) +
+        (d << 10) +
+        (k << 11) +
+        (s << 12) +
+        (l << 13)
     },
     botMiscellaneous: function () {
-      bmak.pen = window._phantom ? 1 : 0, bmak.wen = window.webdriver ? 1 : 0, bmak.den = window.domAutomation ? 1 : 0
+      bmak.pen = window._phantom ? 1 : 0,
+      bmak.wen = window.webdriver ? 1 : 0, 
+      bmak.den = window.domAutomation ? 1 : 0
     },
     botData: function () {
       var a = [],
@@ -206,11 +227,36 @@ var _cf = _cf || [],
       var l = Array.prototype.forEach ? 0 : 1;
       a.push("x11:" + l);
       var u = "FileReader" in window ? 1 : 0;
-      return a.push("x12:" + u), a.join(",")
+      a.push("x12:" + u);
+      return a.join(",")
     },
     fas: function () {
       try {
-        return Boolean(navigator.credentials) + (Boolean(navigator.appMinorVersion) << 1) + (Boolean(navigator.bluetooth) << 2) + (Boolean(navigator.storage) << 3) + (Boolean(Math.imul) << 4) + (Boolean(navigator.getGamepads) << 5) + (Boolean(navigator.getStorageUpdates) << 6) + (Boolean(navigator.hardwareConcurrency) << 7) + (Boolean(navigator.mediaDevices) << 8) + (Boolean(navigator.mozAlarms) << 9) + (Boolean(navigator.mozConnection) << 10) + (Boolean(navigator.mozIsLocallyAvailable) << 11) + (Boolean(navigator.mozPhoneNumberService) << 12) + (Boolean(navigator.msManipulationViewsEnabled) << 13) + (Boolean(navigator.permissions) << 14) + (Boolean(navigator.registerProtocolHandler) << 15) + (Boolean(navigator.requestMediaKeySystemAccess) << 16) + (Boolean(navigator.requestWakeLock) << 17) + (Boolean(navigator.sendBeacon) << 18) + (Boolean(navigator.serviceWorker) << 19) + (Boolean(navigator.storeWebWideTrackingException) << 20) + (Boolean(navigator.webkitGetGamepads) << 21) + (Boolean(navigator.webkitTemporaryStorage) << 22) + (Boolean(Number.parseInt) << 23) + (Boolean(Math.hypot) << 24)
+        return Boolean(navigator.credentials) +
+          (Boolean(navigator.appMinorVersion) << 1) +
+          (Boolean(navigator.bluetooth) << 2) +
+          (Boolean(navigator.storage) << 3) +
+          (Boolean(Math.imul) << 4) +
+          (Boolean(navigator.getGamepads) << 5) +
+          (Boolean(navigator.getStorageUpdates) << 6) +
+          (Boolean(navigator.hardwareConcurrency) << 7) +
+          (Boolean(navigator.mediaDevices) << 8) +
+          (Boolean(navigator.mozAlarms) << 9) +
+          (Boolean(navigator.mozConnection) << 10) +
+          (Boolean(navigator.mozIsLocallyAvailable) << 11) +
+          (Boolean(navigator.mozPhoneNumberService) << 12) +
+          (Boolean(navigator.msManipulationViewsEnabled) << 13) +
+          (Boolean(navigator.permissions) << 14) +
+          (Boolean(navigator.registerProtocolHandler) << 15) +
+          (Boolean(navigator.requestMediaKeySystemAccess) << 16) +
+          (Boolean(navigator.requestWakeLock) << 17) +
+          (Boolean(navigator.sendBeacon) << 18) +
+          (Boolean(navigator.serviceWorker) << 19) +
+          (Boolean(navigator.storeWebWideTrackingException) << 20) +
+          (Boolean(navigator.webkitGetGamepads) << 21) +
+          (Boolean(navigator.webkitTemporaryStorage) << 22) +
+          (Boolean(Number.parseInt) << 23) +
+          (Boolean(Math.hypot) << 24)
       } catch (a) {
         return 0
       }
@@ -266,7 +312,7 @@ var _cf = _cf || [],
           var m = e.toElement;
           null == m && (m = e.target);
           var r = bmak.gf(m),
-            i = bmak.get_cf_date() - bmak.start_ts,
+            i = bmak.get_currentFixed_date() - bmak.start_ts,
             c = bmak.me_cnt + "," + t + "," + i + "," + n + "," + o;
           if (1 != t) {
             c = c + "," + r;
@@ -329,7 +375,7 @@ var _cf = _cf || [],
             var o = -1,
               m = -1;
             n && n.pageX && n.pageY ? (o = Math.floor(n.pageX), m = Math.floor(n.pageY)) : n && n.clientX && n.clientY && (o = Math.floor(n.clientX), m = Math.floor(n.clientY));
-            var r = bmak.get_cf_date() - bmak.start_ts,
+            var r = bmak.get_currentFixed_date() - bmak.start_ts,
               i = bmak.pe_cnt + "," + t + "," + r + "," + o + "," + m;
             void 0 !== n.isTrusted && false === n.isTrusted && (i += ",0"), bmak.pe_vel = bmak.pe_vel + bmak.pe_cnt + t + r + o + m, bmak.pact = bmak.pact + i + ";", bmak.ta += r, 1 == t ? bmak.pme_cnt++ : bmak.pduce_cnt++
           }
@@ -398,7 +444,7 @@ var _cf = _cf || [],
             c = e.metaKey ? 1 : 0,
             b = e.altKey ? 1 : 0,
             d = 8 * r + 4 * i + 2 * c + b,
-            k = bmak.get_cf_date() - bmak.start_ts,
+            k = bmak.get_currentFixed_date() - bmak.start_ts,
             s = bmak.gf(null),
             l = 0;
           m && n && (n = 0 != m && 0 != n && m != n ? -1 : 0 != n ? n : m), 0 == i && 0 == c && 0 == b && n >= 32 && (n = 3 == t && n >= 32 && n <= 126 ? -2 : n >= 33 && n <= 47 ? -3 : n >= 112 && n <= 123 ? -4 : -2), s != bmak.prevfid ? (bmak.fidcnt = 0, bmak.prevfid = s) : bmak.fidcnt = bmak.fidcnt + 1;
@@ -417,7 +463,7 @@ var _cf = _cf || [],
             n = -1,
             o = -1;
           e && e.pageX && e.pageY ? (n = Math.floor(e.pageX), o = Math.floor(e.pageY)) : e && e.clientX && e.clientY && (n = Math.floor(e.clientX), o = Math.floor(e.clientY));
-          var m = bmak.get_cf_date() - bmak.start_ts,
+          var m = bmak.get_currentFixed_date() - bmak.start_ts,
             r = bmak.te_cnt + "," + t + "," + m + "," + n + "," + o;
           void 0 !== e.isTrusted && false === e.isTrusted && (r += ",0"), bmak.tact = bmak.tact + r + ";", bmak.ta += m, bmak.te_vel = bmak.te_vel + bmak.te_cnt + t + m + n + o, bmak.doa_throttle = 0, bmak.dma_throttle = 0
         }
@@ -436,7 +482,7 @@ var _cf = _cf || [],
     computeDeviceOrienationActivity: function (a) {
       try {
         if (bmak.doe_cnt < bmak.doe_cnt_lmt && bmak.doa_throttle < 2 && a) {
-          var t = bmak.get_cf_date() - bmak.start_ts,
+          var t = bmak.get_currentFixed_date() - bmak.start_ts,
             e = bmak.getFloatVal(a.alpha),
             n = bmak.getFloatVal(a.beta),
             o = bmak.getFloatVal(a.gamma),
@@ -449,7 +495,7 @@ var _cf = _cf || [],
     computeDeviceMovementActivity: function (a) {
       try {
         if (bmak.dme_cnt < bmak.dme_cnt_lmt && bmak.dma_throttle < 2 && a) {
-          var t = bmak.get_cf_date() - bmak.start_ts,
+          var t = bmak.get_currentFixed_date() - bmak.start_ts,
             e = -1,
             n = -1,
             o = -1;
@@ -497,7 +543,7 @@ var _cf = _cf || [],
       0 == bmak.doadma_en && window.addEventListener && (window.addEventListener("deviceorientation", bmak.computeDeviceOrienationActivity, true), window.addEventListener("devicemotion", bmak.computeDeviceMovementActivity, true), bmak.doadma_en = 1), bmak.doa_throttle = 0, bmak.dma_throttle = 0
     },
     updatet: function () {
-      return bmak.get_cf_date() - bmak.start_ts
+      return bmak.get_currentFixed_date() - bmak.start_ts
     },
     htm: function (a) {
       bmak.computeTouchActivity(a, 1)
@@ -588,7 +634,7 @@ var _cf = _cf || [],
       bmak.sd_debug("<bpd>");
       var a = 0;
       try {
-        a = bmak.get_cf_date();
+        a = bmak.get_currentFixed_date();
         var t = bmak.updatet(),
           e = "3";
         bmak.ckie && (e = bmak.get_cookie());
@@ -602,7 +648,7 @@ var _cf = _cf || [],
           d = bmak.aj_type + "," + bmak.aj_indx;
         !bmak.fpcf.fpValCalculated && (0 == bmak.js_post || bmak.aj_indx > 0) && bmak.fpcf.fpVal();
         var k = bmak.ke_vel + bmak.me_vel + bmak.doe_vel + bmak.dme_vel + bmak.te_vel + bmak.pe_vel,
-          s = bmak.get_cf_date() - bmak.start_ts,
+          s = bmak.get_currentFixed_date() - bmak.start_ts,
           l = bmak.parseInt(bmak.d2 / 6),
           u = bmak.fas(),
           _ = [bmak.ke_vel + 1, bmak.me_vel + 32, bmak.te_vel + 32, bmak.doe_vel, bmak.dme_vel, bmak.pe_vel, k, t, bmak.init_time, bmak.start_ts, bmak.fpcf.td, bmak.d2, bmak.ke_cnt, bmak.me_cnt, l, bmak.pe_cnt, bmak.te_cnt, s, bmak.ta, bmak.n_ck, e, bmak.ab(e), bmak.fpcf.rVal, bmak.fpcf.rCFP, u],
@@ -628,8 +674,11 @@ var _cf = _cf || [],
         }
         bmak.sensor_data = bmak.ver + "-1,2,-94,-100," + n + "-1,2,-94,-101," + i + "-1,2,-94,-105," + bmak.informinfo + "-1,2,-94,-102," + c + "-1,2,-94,-108," + bmak.kact + "-1,2,-94,-110," + bmak.mact + "-1,2,-94,-117," + bmak.tact + "-1,2,-94,-111," + bmak.doact + "-1,2,-94,-109," + bmak.dmact + "-1,2,-94,-114," + bmak.pact + "-1,2,-94,-103," + bmak.vcact + "-1,2,-94,-112," + b + "-1,2,-94,-115," + f + "-1,2,-94,-106," + d, bmak.sensor_data = bmak.sensor_data + "-1,2,-94,-119," + bmak.mr + "-1,2,-94,-122," + v + "-1,2,-94,-123," + g + "-1,2,-94,-124," + w + "-1,2,-94,-126," + y + "-1,2,-94,-127," + bmak.nav_perm;
         var j = 24 ^ bmak.ab(bmak.sensor_data);
-        bmak.sensor_data = bmak.sensor_data + "-1,2,-94,-70," + bmak.fpcf.fpValstr + "-1,2,-94,-80," + p + "-1,2,-94,-116," + bmak.o9 + "-1,2,-94,-118," + j + "-1,2,-94,-121,", bmak.sd_debug(",s1:" + bmak.sensor_data.slice(0, 10))
+        bmak.sensor_data = bmak.sensor_data + "-1,2,-94,-70," + bmak.fpcf.fpValstr + "-1,2,-94,-80," + p + "-1,2,-94,-116," + bmak.o9 + "-1,2,-94,-118," + j + "-1,2,-94,-121,", 
+        bmak.sd_debug(",s1:" + bmak.sensor_data.slice(0, 10))
+        
       } catch (a) {
+        console.log(a)
         try {
           bmak.sd_debug(",s2:" + a), bmak.sensor_data = bmak.ver + "-1,2,-94,-100," + bmak.userAgentReturn() + "-1,2,-94,-120," + a.replace(/\"/g, "\\'")
         } catch (a) {
@@ -638,10 +687,11 @@ var _cf = _cf || [],
       }
       try {
         var M = bmak.od(bmak.cs, bmak.api_public_key).slice(0, 16),
-          x = Math.floor(bmak.get_cf_date() / 36e5),
-          A = bmak.get_cf_date(),
+          x = Math.floor(bmak.get_currentFixed_date() / 36e5),
+          A = bmak.get_currentFixed_date(),
           L = M + bmak.od(x, M) + bmak.sensor_data;
-        bmak.sensor_data = L + ";" + (bmak.get_cf_date() - a) + ";" + bmak.tst + ";" + (bmak.get_cf_date() - A)
+        bmak.sensor_data = L + ";" + (bmak.get_currentFixed_date() - a) + ";" + bmak.tst + ";" + (bmak.get_currentFixed_date() - A)
+        return bmak.sensor_data;
       } catch (a) { }
       bmak.sd_debug("</bpd>")
     },
@@ -668,7 +718,7 @@ var _cf = _cf || [],
     lvc: function (a) {
       try {
         if (bmak.vc_cnt < bmak.vc_cnt_lmt) {
-          var t = bmak.get_cf_date() - bmak.start_ts,
+          var t = bmak.get_currentFixed_date() - bmak.start_ts,
             e = a + "," + t + ";";
           bmak.vcact = bmak.vcact + e
         }
@@ -691,6 +741,7 @@ var _cf = _cf || [],
       void 0 !== document.hidden ? (bmak.hn = "hidden", bmak.vc = "visibilitychange") : void 0 !== document.mozHidden ? (bmak.hn = "mozHidden", bmak.vc = "mozvisibilitychange") : void 0 !== document.msHidden ? (bmak.hn = "msHidden", bmak.vc = "msvisibilitychange") : void 0 !== document.webkitHidden && (bmak.hn = "webkitHidden", bmak.vc = "webkitvisibilitychange"), document.addEventListener ? "unk" != bmak.hn && document.addEventListener(bmak.vc, bmak.hvc, true) : document.attachEvent && "unk" != bmak.hn && document.attachEvent(bmak.vc, bmak.hvc), window.onblur = bmak.hb, window.onfocus = bmak.hf
     },
     startTracking: function () {
+      console.log('starting tracking')
       bmak.startdoadma();
       try {
         bmak.to()
@@ -699,7 +750,38 @@ var _cf = _cf || [],
       }
       setInterval(function () {
         bmak.startdoadma()
-      }, 3e3), document.addEventListener ? (document.addEventListener("touchmove", bmak.htm, true), document.addEventListener("touchstart", bmak.hts, true), document.addEventListener("touchend", bmak.hte, true), document.addEventListener("touchcancel", bmak.htc, true), document.addEventListener("mousemove", bmak.hmm, true), document.addEventListener("click", bmak.hc, true), document.addEventListener("mousedown", bmak.hmd, true), document.addEventListener("mouseup", bmak.hmu, true), document.addEventListener("pointerdown", bmak.hpd, true), document.addEventListener("pointerup", bmak.hpu, true), document.addEventListener("keydown", bmak.hkd, true), document.addEventListener("keyup", bmak.hku, true), document.addEventListener("keypress", bmak.hkp, true)) : document.attachEvent && (document.attachEvent("touchmove", bmak.htm), document.attachEvent("touchstart", bmak.hts), document.attachEvent("touchend", bmak.hte), document.attachEvent("touchcancel", bmak.htc), document.attachEvent("onmousemove", bmak.hmm), document.attachEvent("onclick", bmak.hc), document.attachEvent("onmousedown", bmak.hmd), document.attachEvent("onmouseup", bmak.hmu), document.attachEvent("onpointerdown", bmak.hpd), document.attachEvent("onpointerup", bmak.hpu), document.attachEvent("onkeydown", bmak.hkd), document.attachEvent("onkeyup", bmak.hku), document.attachEvent("onkeypress", bmak.hkp)), bmak.rve(), bmak.informinfo = bmak.getforminfo(), bmak.js_post && (bmak.aj_type = 0, bmak.bpd(), bmak.pd(true)), bmak.firstLoad = false
+      }, 3e3), 
+      document.addEventListener ? (document.addEventListener("touchmove", bmak.htm, true), 
+      document.addEventListener("touchstart", bmak.hts, true), 
+      document.addEventListener("touchend", bmak.hte, true), 
+      document.addEventListener("touchcancel", bmak.htc, true), 
+      document.addEventListener("mousemove", bmak.hmm, true), 
+      document.addEventListener("click", bmak.hc, true), 
+      document.addEventListener("mousedown", bmak.hmd, true), 
+      document.addEventListener("mouseup", bmak.hmu, true), 
+      document.addEventListener("pointerdown", bmak.hpd, true), 
+      document.addEventListener("pointerup", bmak.hpu, true), 
+      document.addEventListener("keydown", bmak.hkd, true),
+       document.addEventListener("keyup", bmak.hku, true), 
+       document.addEventListener("keypress", bmak.hkp, true)) : 
+       
+       document.attachEvent && (document.attachEvent("touchmove", bmak.htm), 
+       document.attachEvent("touchstart", bmak.hts), 
+       document.attachEvent("touchend", bmak.hte), 
+       document.attachEvent("touchcancel", bmak.htc), 
+       document.attachEvent("onmousemove", bmak.hmm), 
+       document.attachEvent("onclick", bmak.hc), 
+       document.attachEvent("onmousedown", bmak.hmd), 
+       document.attachEvent("onmouseup", bmak.hmu), 
+       document.attachEvent("onpointerdown", bmak.hpd),
+        document.attachEvent("onpointerup", bmak.hpu), 
+        document.attachEvent("onkeydown", bmak.hkd), 
+        document.attachEvent("onkeyup", bmak.hku), 
+        document.attachEvent("onkeypress", bmak.hkp)), 
+        bmak.rve(), 
+        bmak.informinfo = bmak.getforminfo(), 
+        bmak.aj_type = 0;
+        return bmak.bpd(); //bmak.pd(true))
     },
     gb: function (a, t) {
       var e = a.charCodeAt(t);
@@ -878,12 +960,12 @@ var _cf = _cf || [],
     },
     mn_w: function () {
       try {
-        for (var a = 0, t = 0, e = 0, n = "", o = bmak.get_cf_date(), m = bmak.mn_cd + bmak.mn_mc_indx; 0 == a;) {
+        for (var a = 0, t = 0, e = 0, n = "", o = bmak.get_currentFixed_date(), m = bmak.mn_cd + bmak.mn_mc_indx; 0 == a;) {
           n = Math.random().toString(16);
           var r = bmak.mn_cc + m.toString() + n,
             i = bmak.mn_h(r);
-          if (0 == bmak.bdm(i, m)) a = 1, e = bmak.get_cf_date() - o, bmak.mn_al.push(n), bmak.mn_tcl.push(e), bmak.mn_il.push(t), 0 == bmak.mn_mc_indx && (bmak.mn_lg.push(bmak.mn_abck), bmak.mn_lg.push(bmak.mn_ts), bmak.mn_lg.push(bmak.mn_psn), bmak.mn_lg.push(bmak.mn_cc), bmak.mn_lg.push(bmak.mn_cd.toString()), bmak.mn_lg.push(m.toString()), bmak.mn_lg.push(n), bmak.mn_lg.push(r), bmak.mn_lg.push(i));
-          else if ((t += 1) % 1e3 == 0 && (e = bmak.get_cf_date() - o) > bmak.mn_stout) return void setTimeout(bmak.mn_w, 1e3 + bmak.mn_stout)
+          if (0 == bmak.bdm(i, m)) a = 1, e = bmak.get_currentFixed_date() - o, bmak.mn_al.push(n), bmak.mn_tcl.push(e), bmak.mn_il.push(t), 0 == bmak.mn_mc_indx && (bmak.mn_lg.push(bmak.mn_abck), bmak.mn_lg.push(bmak.mn_ts), bmak.mn_lg.push(bmak.mn_psn), bmak.mn_lg.push(bmak.mn_cc), bmak.mn_lg.push(bmak.mn_cd.toString()), bmak.mn_lg.push(m.toString()), bmak.mn_lg.push(n), bmak.mn_lg.push(r), bmak.mn_lg.push(i));
+          else if ((t += 1) % 1e3 == 0 && (e = bmak.get_currentFixed_date() - o) > bmak.mn_stout) return void setTimeout(bmak.mn_w, 1e3 + bmak.mn_stout)
         }
         bmak.mn_mc_indx += 1, bmak.mn_mc_indx < bmak.mn_mc_lmt ? setTimeout(bmak.mn_w, bmak.mn_tout + e) : (bmak.mn_mc_indx = 0, bmak.mn_lc[bmak.mn_lcl] = bmak.mn_cc, bmak.mn_ld[bmak.mn_lcl] = bmak.mn_cd, bmak.mn_lcl = bmak.mn_lcl + 1, bmak.mn_state = 0, bmak.mn_r[bmak.mn_abck + bmak.mn_psn] = bmak.mn_pr(), bmak.js_post && (bmak.aj_type = 8, bmak.bpd(), bmak.pd(true)))
       } catch (a) {
@@ -965,12 +1047,23 @@ var _cf = _cf || [],
   };
 if (function (a) {
   var t = {};
-  a.fpcf = t, t.sf4 = function () {
+  a.fpcf = t;
+  t.sf4 = function () {
     var a = bmak.userAgentReturn();
-    return !(!~a.indexOf("Version/4.0") || !(~a.indexOf("iPad;") || ~a.indexOf("iPhone") || ~a.indexOf("Mac OS X 10_5")))
-  }, t.fpValstr = "-1", t.fpValCalculated = false, t.rVal = "-1", t.rCFP = "-1", t.cache = {}, t.td = -999999, t.clearCache = function () {
+    return !
+    (!~a.indexOf("Version/4.0") || !(~a.indexOf("iPad;") || ~a.indexOf("iPhone") || ~a.indexOf("Mac OS X 10_5")))
+  }; 
+  t.fpValstr = "-1";
+  t.fpValCalculated = false;
+  t.rVal = "-1";
+  t.rCFP = "-1";
+  t.cache = {};
+  t.td = -999999;
+
+  t.clearCache = function () {
     t.cache = {}
-  }, t.fpVal = function () {
+  };
+  t.fpVal = function () {
     t.fpValCalculated = true;
     try {
       var a = 0;
@@ -980,32 +1073,86 @@ if (function (a) {
       var n = 0;
       n = Date.now ? Date.now() : +new Date, t.td = n - a
     } catch (a) { }
-  }, t.timezoneOffsetKey = function () {
+  };
+  t.timezoneOffsetKey = function () {
     return (new Date).getTimezoneOffset()
-  }, t.data = function () {
+  };
+  t.data = function () {
     var a = screen.colorDepth ? screen.colorDepth : -1,
       e = screen.pixelDepth ? screen.pixelDepth : -1,
       n = navigator.cookieEnabled ? navigator.cookieEnabled : -1,
       o = navigator.javaEnabled ? navigator.javaEnabled() : -1,
       m = navigator.doNotTrack ? navigator.doNotTrack : -1,
       r = "default";
-    return r = bmak.runFonts ? bmak.altFonts ? t.fonts_optm() : t.fonts() : "dis", [t.canvas("<@nv45. F1n63r,Pr1n71n6!"), t.canvas("m,Ev!xV67BaU> eh2m<f3AG3@"), r, t.pluginInfo(), t.sessionStorageKey(), t.localStorageKey(), t.indexedDbKey(), t.timezoneOffsetKey(), t.webrtcKey(), a, e, n, o, m].join(";")
-  }, t.PLUGINS = ["WebEx64 General Plugin Container", "YouTube Plug-in", "Java Applet Plug-in", "Shockwave Flash", "iPhotoPhotocast", "SharePoint Browser Plug-in", "Chrome Remote Desktop Viewer", "Chrome PDF Viewer", "Native Client", "Unity Player", "WebKit-integrierte PDF", "QuickTime Plug-in", "RealPlayer Version Plugin", "RealPlayer\(tm\) G2 LiveConnect-Enabled Plug-In \(32-bit\)", "Mozilla Default Plug-in", "Adobe Acrobat", "AdobeAAMDetect", "Google Earth Plug-in", "Java Plug-in 2 for NPAPI Browsers", "Widevine Content Decryption Module", "Microsoft Office Live Plug-in", "Windows Media Player Plug-in Dynamic Link Library", "Google Talk Plugin Video Renderer", "Edge PDF Viewer", "Shockwave for Director", "Default Browser Helper", "Silverlight Plug-In"], t.pluginInfo = function () {
+
+      console.log('datas:', a, e, n, o, m, r)
+    return r = bmak.runFonts ? bmak.altFonts ? t.fonts_optm() : t.fonts() : "dis", 
+    [
+      t.canvas("<@nv45. F1n63r,Pr1n71n6!"), 
+      t.canvas("m,Ev!xV67BaU> eh2m<f3AG3@"), 
+      r, 
+      t.pluginInfo(), 
+      t.sessionStorageKey(), 
+      t.localStorageKey(), 
+      t.indexedDbKey(), 
+      t.timezoneOffsetKey(), 
+      t.webrtcKey(), 
+      a, e, n, o, m
+    ].join(";")
+  };
+  t.PLUGINS = [
+    "WebEx64 General Plugin Container", 
+    "YouTube Plug-in", 
+    "Java Applet Plug-in", 
+    "Shockwave Flash", 
+    "iPhotoPhotocast", 
+    "SharePoint Browser Plug-in", 
+    "Chrome Remote Desktop Viewer", 
+    "Chrome PDF Viewer", 
+    "Native Client", 
+    "Unity Player", 
+    "WebKit-integrierte PDF", 
+    "QuickTime Plug-in", 
+    "RealPlayer Version Plugin", 
+    "RealPlayer\(tm\) G2 LiveConnect-Enabled Plug-In \(32-bit\)", 
+    "Mozilla Default Plug-in", 
+    "Adobe Acrobat", 
+    "AdobeAAMDetect", 
+    "Google Earth Plug-in", 
+    "Java Plug-in 2 for NPAPI Browsers", 
+    "Widevine Content Decryption Module", 
+    "Microsoft Office Live Plug-in", 
+    "Windows Media Player Plug-in Dynamic Link Library", 
+    "Google Talk Plugin Video Renderer", 
+    "Edge PDF Viewer", 
+    "Shockwave for Director", 
+    "Default Browser Helper", 
+    "Silverlight Plug-In"
+  ];
+  t.pluginInfo = function () {
     if (void 0 === navigator.plugins) return null;
     for (var a = t.PLUGINS.length, e = "", n = 0; n < a; n++) {
       var o = t.PLUGINS[n];
       void 0 !== navigator.plugins[o] && (e = e + "," + n)
     }
     return e
-  }, t.canvas = function (a) {
+  };
+  t.canvas = function (a) {
     try {
       if (void 0 !== t.cache.canvas) return t.cache.canvas;
       var e = -1;
       if (!t.sf4()) {
         var n = document.createElement("canvas");
-        if (n.width = 280, n.height = 60, n.style.display = "none", "function" == typeof n.getContext) {
+        n.width = 280, 
+        n.height = 60, 
+        n.style.display = "none";
+        if ("function" == typeof n.getContext) {
           var o = n.getContext("2d");
-          o.fillStyle = "rgb\(102, 204, 0\)", o.fillRect(100, 5, 80, 50), o.fillStyle = "#f60", o.font = "16pt Arial", o.fillText(a, 10, 40), o.strokeStyle = "rgb\(120, 186, 176\)", o.arc(80, 10, 20, 0, Math.PI, false), o.stroke();
+          o.fillStyle = "rgb\(102, 204, 0\)", 
+          o.fillRect(100, 5, 80, 50), 
+          o.fillStyle = "#f60", 
+          o.font = "16pt Arial", 
+          o.fillText(a, 10, 40), o.strokeStyle = "rgb\(120, 186, 176\)", o.arc(80, 10, 20, 0, Math.PI, false), o.stroke();
           var m = n.toDataURL();
           e = 0;
           for (var r = 0; r < m.length; r++) {
@@ -1024,11 +1171,13 @@ if (function (a) {
       }
       return e
     } catch (a) {
+      console.log(a);
       return "exception"
     }
-  }, t.fonts_optm = function () {
+  };
+  t.fonts_optm = function () {
     var a = 200,
-      e = bmak.get_cf_date(),
+      e = bmak.get_currentFixed_date(),
       n = [];
     if (!t.sf4()) {
       var o = ["sans-serif", "monospace"],
@@ -1042,7 +1191,7 @@ if (function (a) {
         b.innerHTML = "abcdefhijklmnopqrstuvxyz1234567890;\+-.", b.style.fontSize = "90px", b.style.fontFamily = o[c], i.appendChild(b)
       }
       for (document.body.appendChild(i), c = 0; c < i.childNodes.length; c++) b = i.childNodes[c], m[c] = b.offsetWidth, r[c] = b.offsetHeight;
-      if (document.body.removeChild(i), bmak.get_cf_date() - e > a) return "";
+      if (document.body.removeChild(i), bmak.get_currentFixed_date() - e > a) return "";
       var d = ["Geneva", "Lobster", "New York", "Century", "Apple Gothic", "Minion Pro", "Apple LiGothic", "Century Gothic", "Monaco", "Lato", "Fantasque Sans Mono", "Adobe Braille", "Cambria", "Futura", "Bell MT", "Courier", "Courier New", "Calibri", "Avenir Next", "Birch Std", "Palatino", "Ubuntu Regular", "Oswald", "Batang", "Ubuntu Medium", "Cantarell", "Droid Serif", "Roboto", "Helvetica Neue", "Corsiva Hebrew", "Adobe Hebrew", "TI-Nspire", "Comic Neue", "Noto", "AlNile", "Palatino-Bold", "ArialHebrew-Light", "Avenir", "Papyrus", "Open Sans", "Times", "Quicksand", "Source Sans Pro", "Damascus", "Microsoft Sans Serif"],
         k = document.createElement("div");
       k.style.cssText = "position: relative; left: -9999px; visibility: hidden; display: block !important";
@@ -1054,7 +1203,7 @@ if (function (a) {
         }
         k.appendChild(u)
       }
-      if (bmak.get_cf_date() - e > a) return "";
+      if (bmak.get_currentFixed_date() - e > a) return "";
       document.body.appendChild(k);
       for (var l = 0; l < k.childNodes.length; l++) {
         var _ = false,
@@ -1066,12 +1215,13 @@ if (function (a) {
             break
           }
         }
-        if (_ && s.push(l), bmak.get_cf_date() - e > a) break
+        if (_ && s.push(l), bmak.get_currentFixed_date() - e > a) break
       }
       document.body.removeChild(k), n = s.sort()
     }
     return n.join(",")
-  }, t.fonts = function () {
+  };
+  t.fonts = function () {
     var a = [];
     if (!t.sf4()) {
       var e = ["serif", "sans-serif", "monospace"],
@@ -1092,29 +1242,38 @@ if (function (a) {
       a = c.sort()
     }
     return a.join(",")
-  }, t.webrtcKey = function () {
-    return "function" == typeof window.RTCPeerConnection || "function" == typeof window.mozRTCPeerConnection || "function" == typeof window.webkitRTCPeerConnection
-  }, t.indexedDbKey = function () {
+  };
+  t.webrtcKey = function () {
+    return "function" == typeof window.RTCPeerConnection || 
+    "function" == typeof window.mozRTCPeerConnection || 
+    "function" == typeof window.webkitRTCPeerConnection
+  };
+  t.indexedDbKey = function () {
     return !!t.hasIndexedDB()
-  }, t.sessionStorageKey = function () {
+  };
+  t.sessionStorageKey = function () {
     return !!t.hasSessionStorage()
-  }, t.localStorageKey = function () {
+  };
+  t.localStorageKey = function () {
     return !!t.hasLocalStorage()
-  }, t.hasSessionStorage = function () {
+  };
+  t.hasSessionStorage = function () {
     try {
       return !!window.sessionStorage
     } catch (a) {
       return false
     }
-  }, t.hasLocalStorage = function () {
+  };
+  t.hasLocalStorage = function () {
     try {
       return !!window.localStorage
     } catch (a) {
       return false
     }
-  }, t.hasIndexedDB = function () {
+  };
+  t.hasIndexedDB = function () {
     return !!window.indexedDB
-  }
+  };
 }(bmak), bmak.firstLoad) {
   bmak.sd_debug("<init/>");
   for (var i = 0; i < _cf.length; i++) bmak.applyFunc(_cf[i]);
@@ -1122,8 +1281,18 @@ if (function (a) {
     push: bmak.applyFunc
   };
   try {
-    bmak.initialRun(), bmak.t_tst = bmak.get_cf_date(), bmak.startTracking(), bmak.tst = bmak.get_cf_date() - bmak.t_tst, bmak.disFpCalOnTimeout || setTimeout(bmak.calc_fp, 500);
+    bmak.initialRun(), 
+    bmak.t_tst = bmak.get_currentFixed_date();
+    return bmak.startTracking(); 
+    bmak.tst = bmak.get_currentFixed_date() - bmak.t_tst, bmak.disFpCalOnTimeout || setTimeout(bmak.calc_fp, 500);
     for (var i = 0; i < 3; i++) setTimeout(bmak.getmr, 400 + 5e3 * i);
     setTimeout(bmak.mn_init, 1e3)
-  } catch (a) { }
+    setInterval(() => {
+      console.log("SD:", bmak.sensor_data)
+    }, 2000)
+   
+  } catch (a) { 
+    console.log(a)
+  }
+}
 }
