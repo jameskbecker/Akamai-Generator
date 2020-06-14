@@ -1148,27 +1148,45 @@ if (function (a) {
         n.style.display = "none";
         if ("function" == typeof n.getContext) {
           var o = n.getContext("2d");
-          o.fillStyle = "rgb\(102, 204, 0\)", 
-          o.fillRect(100, 5, 80, 50), 
-          o.fillStyle = "#f60", 
-          o.font = "16pt Arial", 
-          o.fillText(a, 10, 40), o.strokeStyle = "rgb\(120, 186, 176\)", o.arc(80, 10, 20, 0, Math.PI, false), o.stroke();
+          o.fillStyle = "rgb\(102, 204, 0\)";
+          o.fillRect(100, 5, 80, 50);
+          o.fillStyle = "#f60";
+          o.font = "16pt Arial";
+          o.fillText(a, 10, 40), o.strokeStyle = "rgb\(120, 186, 176\)";
+          o.arc(80, 10, 20, 0, Math.PI, false);
+          o.stroke();
           var m = n.toDataURL();
           e = 0;
           for (var r = 0; r < m.length; r++) {
             e = (e << 5) - e + m.charCodeAt(r), e &= e
           }
           e = e.toString();
+          
           var i = document.createElement("canvas");
-          i.width = 16, i.height = 16;
+          i.width = 16;
+          i.height = 16;
+          
           var c = i.getContext("2d");
-          c.font = "6pt Arial", t.rVal = Math.floor(1e3 * Math.random()).toString(), c.fillText(t.rVal, 1, 12);
-          for (var b = i.toDataURL(), d = 0, k = 0; k < b.length; k++) {
+          c.font = "6pt Arial";
+          t.rVal = Math.floor(1e3 * Math.random()).toString();
+          
+          for (let i = 0; i < 1000; i ++) {
+            
+          }
+          
+          c.fillText(t.rVal, 1, 12);
+
+          var b = i.toDataURL(); 
+          console.log(b)
+          var d = 0;
+          for (var k = 0; k < b.length; k++) {
             d = (d << 5) - d + b.charCodeAt(k), d &= d
           }
+          
           t.rCFP = d.toString()
         }
       }
+      console.log({e})
       return e
     } catch (a) {
       console.log(a);
